@@ -1,0 +1,26 @@
+<div [ngClass]="alerta" class="alert" role="alert">
+    Cambio de color de la propiedad alert!!! (ngClass)
+</div>
+<button class="btn btn-warning" (click)="alerta = 'alert-warning'">
+    Warning
+    </button>
+<button class="btn btn-success" (click)="alerta = 'alert-success' ">
+    Success
+    </button>
+<br>
+<br>
+
+<h3 [ngClass]="{'text-danger': propiedades.danger, 'text-info': !propiedades.danger }">Cambio de propiedades con ngCLass</h3>
+<button class="btn" (click)="propiedades.danger = !propiedades.danger" [ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger}">
+        Cambiar
+        </button>
+
+<br>
+<br>
+
+<h3>Proceso Asíncrono</h3>
+<button class="btn btn-primary" (click)="ejecutar()" [disabled]="loading">
+        <i class="fa" [ngClass]="{'fa-save': !loading, 'fa-spinner fa-spin': loading}"></i>
+         <span *ngIf="!loading"> Guardar Cambios</span>
+         <span *ngIf="loading"> Espere por favor...</span>
+</button>

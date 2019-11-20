@@ -1,0 +1,32 @@
+<div class="container main-container">
+    <h1>Canal de Youtube</h1>
+    <hr>
+</div>
+<div class="card-columns" *ngIf="videos.length > 0">
+    <div class="card animated fadeIn faster" *ngFor="let video of videos; let i = index">
+        <img [src]="video.thumbnails.high.url" class="card-img-top" [alt]="video.title">
+        <div class="card-body">
+            <h4 class="card-title">{{video.title}}</h4>
+            <button (click)="verVideo(video)" class="btn btn-outline-secondary btn-block">Ver video</button>
+        </div>
+    </div>
+
+</div>
+<div>
+    <button (click)="cargarMas()" type="button" class="btn btn-outline-danger btn-block">Cargar Más Videos...</button>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" *ngIf="seleccionado">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">{{seleccionado.title}}</h5>
+            </div>
+            <div class="modal-body">
+                <iframe width="100%" height="300" [src]="seleccionado.resourceId.videoId | video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
