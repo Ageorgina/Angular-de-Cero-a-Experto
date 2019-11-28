@@ -123,8 +123,8 @@
             <tr>
                 <td> {{ nombre }}</td>
                 <td> contraseña: {{activo}} <br>
-                    <button *ngIf="!activo" (click)="cambio()" class="btn btn-primary">Activar </button>
-                    <button *ngIf="activo" (click)="cambio()" class="btn btn-success"> Desactivar </button>
+                    <button *ngIf="!activo" (click)="cambio()" class="btn btn-primary">Activar/Desactivar </button>
+                    <button *ngIf="activo" (click)="cambio()" class="btn btn-success"> Activar/Desactivar </button>
                 </td>
                 <td> {{ nombre | contrasena: activo }}</td>
             </tr>
