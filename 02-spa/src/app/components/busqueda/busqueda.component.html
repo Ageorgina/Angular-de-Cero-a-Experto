@@ -1,0 +1,12 @@
+<h1>Buscando: <small> {{termino}}</small></h1>
+<div class="row">
+    <div *ngIf="heroes.length==0" class="col-md-12">
+        <div class="alert alert-info" role="alert">
+            No existen resultados con el término: {{termino}}
+        </div>
+
+    </div>
+</div>
+<div class="card-columns">
+    <app-heroe-tarjeta [heroe]="heroe" [index]="heroe.idx" *ngFor="let heroe of heroes;let i = index"></app-heroe-tarjeta>
+</div>
